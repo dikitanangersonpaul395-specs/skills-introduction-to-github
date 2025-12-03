@@ -1,0 +1,16 @@
+name: Check Event Trigger
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  show-event:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print event trigger
+        run: echo "Event name: ${{ github.event_name }}"
+
+      - name: Print full event data (optional)
+        run: echo "${{ toJson(github.event) }}"
